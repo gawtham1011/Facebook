@@ -1,0 +1,26 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block titile %} Aerona {% endblock %}
+{% block styles %}
+     <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+     <link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="subnav">
+        {% for i in cat %}
+        <a href="/categories/{{i.id}}">{{ i.cat_name }}</a>
+        {% endfor %}
+    </div>
+    <div class="detail">
+        <div class="c-style detprod" style="width: 25rem;">
+            <div class="imageprod">
+                <img class="card-img-top" src="{{prod.image.url}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ prod.title }}</h5>
+                <p class="card-text">Rs/- {{ prod.price }}</p>
+                <a href="/payment/{{prod.id}}" class="btn btn-primary">PAY HERE</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
